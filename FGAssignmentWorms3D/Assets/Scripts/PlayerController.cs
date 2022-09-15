@@ -7,8 +7,10 @@ using UnityEngine.AI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
+
+    [SerializeField] private int playerIndex;
     //[SerializeField] private float speed;
-    [SerializeField] private int noOfMovements = 3;
+    //[SerializeField] private int noOfMovements = 3;
     
     //[SerializeField] private int noOfBulletAmmo = 3;
     
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z ));
         }
 
-        if (Input.GetMouseButtonDown(0) && noOfMovements > 0)
+        if (Input.GetMouseButtonDown(0) && PlayerAttributes.noOfMovements > 0)
         {
             RaycastHit result;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -36,13 +38,15 @@ public class PlayerController : MonoBehaviour
                 agent.SetDestination(result.point);
             }
 
-            noOfMovements--;
+            PlayerAttributes.AmountOfMovementClicks();
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            noOfMovements = 3;
+            TurnManager.ChangeTurn();
         }
+
+
         
     }
     

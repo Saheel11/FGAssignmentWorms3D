@@ -6,6 +6,7 @@ using UnityEngine;
 public class CameraTargetFollow : MonoBehaviour
 {
     public Transform target;
+    public float speed;
 
     [SerializeField]private Vector3 offset;
 
@@ -17,7 +18,8 @@ public class CameraTargetFollow : MonoBehaviour
     private void LateUpdate()
     {
         transform.position = target.transform.position + offset;
-        
+        var v3 = new Vector3(0, Input.GetAxis("Horizontal"), 0);
+        transform.Rotate(v3 * speed * Time.deltaTime);
     }
 
     /*private void Update()

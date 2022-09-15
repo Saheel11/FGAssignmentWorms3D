@@ -11,6 +11,10 @@
     <setting file="file://$PROJECT_DIR$/../../../2D Platformer For Fun/Assets/ScriptsOwn/Weapon.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraTargetFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickUpManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerAttributes.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -69,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1663151809522</updated>
       <workItem from="1663151811021" duration="13305000" />
-      <workItem from="1663224557639" duration="691000" />
+      <workItem from="1663224557639" duration="6933000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class DestroyObject : MonoBehaviour
@@ -11,6 +12,15 @@ public class DestroyObject : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
-        Destroy(gameObject);
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerAttributes.LoseHealth();
+            Debug.Log("player has " + PlayerAttributes.playerHealth + " health left");
+        }
+
+        Destroy(this.gameObject);
+
     }
+
 }
