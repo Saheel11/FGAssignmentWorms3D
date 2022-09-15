@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z ));
         }
 
-        if (Input.GetMouseButtonDown(0) && PlayerAttributes.amountOfActions > 0)
+        if (Input.GetMouseButtonDown(0)) //&& PlayerAttributes.amountOfActions > 0
         {
             RaycastHit result;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -43,12 +43,59 @@ public class PlayerController : MonoBehaviour
         if (PlayerAttributes.amountOfMovementMeter >= amountOfTimeToMove)
         {
             agent.velocity = new Vector3(0, 0, 0);
-            Debug.Log("Player can not move more");
+            //Debug.Log("Player can not move more");
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TurnManager.ChangeTurn();
+            agent.SetDestination(transform.position); // stop player from moving when switching controls
+            
+            PlayerAttributes.ResetPlayerActions();
+            
+            TurnManager tM = TurnManager.GetInstance(); //Access TurnManager class
+            
+            //Change camera and controls and attributes if Player 1
+            if (tM.IsItPlayersTurn(1)) 
+            {
+                tM.players[1].gameObject.GetComponent<PlayerController>().enabled = false;
+                tM.players[1].gameObject.GetComponentInChildren<Weapon>().enabled = false;
+                
+                tM.players[1].gameObject.GetComponent<PlayerAttributes>().enabled = true;
+                
+                tM.camTargetFollowers[1].gameObject.GetComponent<CameraTargetFollow>().enabled = false;
+                tM.vCameras[1].gameObject.SetActive(false);
+                
+                
+                tM.players[0].gameObject.GetComponent<PlayerController>().enabled = true;
+                tM.players[0].gameObject.GetComponentInChildren<Weapon>().enabled = true;
+                
+                tM.players[0].gameObject.GetComponent<PlayerAttributes>().enabled = false;
+                
+                tM.camTargetFollowers[0].gameObject.GetComponent<CameraTargetFollow>().enabled = true;
+                tM.vCameras[0].gameObject.SetActive(true);
+                
+                
+            }
+            //Change camera and controls and attributes if Player 2
+            if (tM.IsItPlayersTurn(2)) 
+            {
+                tM.players[0].gameObject.GetComponent<PlayerController>().enabled = false;
+                tM.players[0].gameObject.GetComponentInChildren<Weapon>().enabled = false;
+                
+                tM.players[0].gameObject.GetComponent<PlayerAttributes>().enabled = true;
+                
+                tM.camTargetFollowers[0].gameObject.GetComponent<CameraTargetFollow>().enabled = false;
+                tM.vCameras[0].gameObject.SetActive(false);
+                
+                tM.players[1].gameObject.GetComponent<PlayerController>().enabled = true;
+                tM.players[1].gameObject.GetComponentInChildren<Weapon>().enabled = true;
+                
+                tM.players[1].gameObject.GetComponent<PlayerAttributes>().enabled = false;
+                
+                tM.camTargetFollowers[1].gameObject.GetComponent<CameraTargetFollow>().enabled = true;
+                tM.vCameras[1].gameObject.SetActive(true);
+            }
         }
         
         

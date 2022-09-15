@@ -14,6 +14,8 @@ public class Weapon : MonoBehaviour
     
     [SerializeField] private GameObject bullet;
     [SerializeField] private LayerMask whatToHit;
+
+    private float rotationX = 0;
     
     
     //[SerializeField]
@@ -35,6 +37,17 @@ public class Weapon : MonoBehaviour
             ShootWeapon();
         }
         
+        RaycastHit hit; 
+        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
+        if (Physics.Raycast(mouseRay, out hit, range))
+        {
+            transform.LookAt(hit.point);
+        }
+
+        rotationX = Mathf.Clamp(rotationX, 0, 0);
+
+
     }
 
     void ShootWeapon()
@@ -44,8 +57,11 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(mouseRay, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            Debug.Log(hit.point);
             SpawnBullet();
+            
+            //transform.rotation.eulerAngles.x = Mathf.Clamp(transform.eulerAngles.x, -90, 90);
+            
         }
 
     }

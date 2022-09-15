@@ -9,7 +9,8 @@ public class PickUp : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PlayerAttributes.bulletAmmo = 3;
+            PlayerAttributes.amountOfActions = PlayerAttributes.amountOfActions + 2;
+            Debug.Log("you have" + PlayerAttributes.amountOfActions + " actions left");
             Destroy(gameObject);
         }
 

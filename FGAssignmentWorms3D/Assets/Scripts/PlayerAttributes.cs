@@ -1,17 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAttributes : MonoBehaviour
 {
 
     private static PlayerAttributes instance;
-    public static int playerHealth = 100;
-    public static int noOfMovements = 3; // use if separating shooting and movement
-    public static int bulletAmmo = 3; // use if separating shooting and movement
-    public static int amountOfActions = 5; // use if combining shooting and movement
+    public static int playerHealth = 30;
+    public static int playerHealth2 = 30;
+    //public static int noOfMovements = 3; // use if separating shooting and movement
+    //public static int bulletAmmo = 3; // use if separating shooting and movement
+    public static int amountOfActions = 10; // use if combining shooting and movement
     public static float amountOfMovementMeter;
+    public static float amountOfTimeToMove = 5f;
 
     private void Awake()
     {
@@ -21,6 +24,11 @@ public class PlayerAttributes : MonoBehaviour
     private void Update()
     {
         if (playerHealth == 0)
+        {
+            this.gameObject.SetActive(false);
+        }
+
+        if (playerHealth2 == 0)
         {
             this.gameObject.SetActive(false);
         }
@@ -49,18 +57,10 @@ public class PlayerAttributes : MonoBehaviour
         playerHealth = playerHealth - 10;
     }
 
-    public static void AmountOfMovementClicks()
+    public static void LoseHealth2() // change name
     {
-        noOfMovements--;
-        Debug.Log("Player has " + noOfMovements + " movements left");
+        playerHealth2 = playerHealth2 - 10;
     }
-
-    public static void AmountOfBulletsLeft()
-    {
-        bulletAmmo--;
-        Debug.Log("Player has" + bulletAmmo + " bullets left");
-    }
-
     public static void DecreaseAmountOfActionsLeft()
     {
         amountOfActions--;
@@ -70,6 +70,27 @@ public class PlayerAttributes : MonoBehaviour
     public static void IncreaseMovementMeter()
     {
         amountOfMovementMeter = amountOfMovementMeter + Time.deltaTime;
-        Debug.Log(("movement meter is " + amountOfMovementMeter));
+        //Debug.Log(("movement meter is " + amountOfMovementMeter));
     }
+
+    public static void ResetPlayerActions()
+    {
+        PlayerAttributes.amountOfActions = 5; 
+        PlayerAttributes.amountOfMovementMeter = 0f;
+    }
+    
+    /////////////////Stuff i might need later
+
+    /*public static void AmountOfMovementClicks()
+    {
+        noOfMovements--;
+        Debug.Log("Player has " + noOfMovements + " movements left");
+    }*/
+
+    /*public static void AmountOfBulletsLeft()
+    {
+        bulletAmmo--;
+        Debug.Log("Player has" + bulletAmmo + " bullets left");
+    }*/
+    
 }
