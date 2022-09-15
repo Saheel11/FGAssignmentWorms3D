@@ -8,7 +8,10 @@ public class PlayerAttributes : MonoBehaviour
 
     private static PlayerAttributes instance;
     public static int playerHealth = 100;
-    public static int noOfMovements = 3;
+    public static int noOfMovements = 3; // use if separating shooting and movement
+    public static int bulletAmmo = 3; // use if separating shooting and movement
+    public static int amountOfActions = 5; // use if combining shooting and movement
+    public static float amountOfMovementMeter;
 
     private void Awake()
     {
@@ -21,11 +24,19 @@ public class PlayerAttributes : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
-        
-        if (Input.GetKeyDown(KeyCode.C))
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            amountOfActions = 5;
+        }
+        /*if (Input.GetKeyDown(KeyCode.C))
         {
             noOfMovements = 3;
         }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            bulletAmmo = 3;
+        }*/
     }
 
     public static PlayerAttributes GetPlayerAttributesInstance()
@@ -42,5 +53,23 @@ public class PlayerAttributes : MonoBehaviour
     {
         noOfMovements--;
         Debug.Log("Player has " + noOfMovements + " movements left");
+    }
+
+    public static void AmountOfBulletsLeft()
+    {
+        bulletAmmo--;
+        Debug.Log("Player has" + bulletAmmo + " bullets left");
+    }
+
+    public static void DecreaseAmountOfActionsLeft()
+    {
+        amountOfActions--;
+        Debug.Log("Player has" + amountOfActions + " actions left");
+    }
+
+    public static void IncreaseMovementMeter()
+    {
+        amountOfMovementMeter = amountOfMovementMeter + Time.deltaTime;
+        Debug.Log(("movement meter is " + amountOfMovementMeter));
     }
 }

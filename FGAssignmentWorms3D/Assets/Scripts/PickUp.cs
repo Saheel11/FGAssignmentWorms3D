@@ -9,8 +9,9 @@ public class PickUp : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            PlayerAttributes.bulletAmmo = 3;
             Destroy(gameObject);
         }
-        
+
     }
 }

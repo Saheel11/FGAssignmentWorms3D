@@ -7,13 +7,8 @@ using UnityEngine.AI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
-
     [SerializeField] private int playerIndex;
-    //[SerializeField] private float speed;
-    //[SerializeField] private int noOfMovements = 3;
-    
-    //[SerializeField] private int noOfBulletAmmo = 3;
-    
+    [SerializeField] private float amountOfTimeToMove = 5f;
 
     void Update()
     {
@@ -29,26 +24,36 @@ public class PlayerController : MonoBehaviour
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z ));
         }
 
-        if (Input.GetMouseButtonDown(0) && PlayerAttributes.noOfMovements > 0)
+        if (Input.GetMouseButtonDown(0) && PlayerAttributes.amountOfActions > 0)
         {
             RaycastHit result;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out result, 100f))
+            if (Physics.Raycast(ray, out result, 100f) && PlayerAttributes.amountOfMovementMeter < amountOfTimeToMove)
             {
                 agent.SetDestination(result.point);
+                //PlayerAttributes.DecreaseAmountOfActionsLeft(); Add this if you want to limit movement to action as well
             }
+        }
+        if (agent.velocity != new Vector3(0,0,0)) // if it reaches amountOfTimeToMove, the player can not move anymore
+        {
+            
+            PlayerAttributes.IncreaseMovementMeter();
+        }
 
-            PlayerAttributes.AmountOfMovementClicks();
+        if (PlayerAttributes.amountOfMovementMeter >= amountOfTimeToMove)
+        {
+            agent.velocity = new Vector3(0, 0, 0);
+            Debug.Log("Player can not move more");
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TurnManager.ChangeTurn();
         }
-
-
+        
         
     }
-    
-    
+
+
+
 }

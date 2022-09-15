@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     //[SerializeField] private float damage = 10f;
     [SerializeField] private float range = 100f;
     [SerializeField] private float bulletSpeed = 30f;
-    [SerializeField] private int bulletAmmo = 3;
+    //[SerializeField] private int bulletAmmo = 3;
     
     [SerializeField] private GameObject bullet;
     [SerializeField] private LayerMask whatToHit;
@@ -30,15 +30,11 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && bulletAmmo > 0)
+        if (Input.GetMouseButtonDown(1) && PlayerAttributes.amountOfActions > 0)
         {
             ShootWeapon();
         }
-
-        if (Input.GetKeyDown(KeyCode.X)) //change later to pick up
-        {
-            bulletAmmo = 3;
-        }
+        
     }
 
     void ShootWeapon()
@@ -59,7 +55,7 @@ public class Weapon : MonoBehaviour
         GameObject bulletGO = Instantiate(bullet, weaponFirePoint.transform.position, weaponFirePoint.transform.rotation);
         bulletGO.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
         Destroy(bulletGO, 2f);
-        bulletAmmo--;
+        PlayerAttributes.DecreaseAmountOfActionsLeft();
     }
     
     

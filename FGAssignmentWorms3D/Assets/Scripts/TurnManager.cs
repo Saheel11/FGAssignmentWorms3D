@@ -14,6 +14,7 @@ public class TurnManager : MonoBehaviour
       {
          instance = this;
          currentPlayerIndex = 1;
+         Debug.Log("its player" + currentPlayerIndex);
       }
    }
 
@@ -32,11 +33,13 @@ public class TurnManager : MonoBehaviour
       if (currentPlayerIndex == 1)
       {
          currentPlayerIndex = 2;
+         Debug.Log("switched to player 2");
       }
-      
-      if (currentPlayerIndex == 2)
+
+      else if (currentPlayerIndex == 2)
       {
          currentPlayerIndex = 1;
+         Debug.Log("switched to player 1");
       }
    }
       

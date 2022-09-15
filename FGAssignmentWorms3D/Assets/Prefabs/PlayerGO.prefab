@@ -212,7 +212,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 8251206361646510649}
-  noOfMovements: 3
+  playerIndex: 1
+  amountOfMovementMeter: 0
+  amountOfTimeToMove: 5
 --- !u!195 &8251206361646510649
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -313,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 8251206361646510647}
-  speed: 50
+  speed: 100
   offset: {x: 0, y: 0, z: 0}
 --- !u!1 &8251206363030014317
 GameObject:
@@ -477,8 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 100
-  bulletSpeed: 5000
-  bulletAmmo: 3
+  bulletSpeed: 2000
   bullet: {fileID: 1435112520482990083, guid: 2c887f78416b03f4d9368c76fdc1fb53, type: 3}
   whatToHit:
     serializedVersion: 2
