@@ -35,13 +35,13 @@ public class PlayerAttributes : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            amountOfActions = 3;
+            ResetPlayerActions();
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        /*if (Input.GetKeyDown(KeyCode.C))
         {
             amountOfMovementMeter = 0f;
         }
-        /*if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             bulletAmmo = 3;
         }*/
@@ -75,7 +75,7 @@ public class PlayerAttributes : MonoBehaviour
 
     public static void ResetPlayerActions()
     {
-        PlayerAttributes.amountOfActions = 5; 
+        PlayerAttributes.amountOfActions = 3; 
         PlayerAttributes.amountOfMovementMeter = 0f;
     }
     
