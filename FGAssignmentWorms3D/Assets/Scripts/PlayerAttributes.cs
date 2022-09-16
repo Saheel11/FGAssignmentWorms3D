@@ -8,11 +8,11 @@ public class PlayerAttributes : MonoBehaviour
 {
 
     private static PlayerAttributes instance;
-    public static int playerHealth = 30;
-    public static int playerHealth2 = 30;
+    public static int playerHealth = 100;
+    public static int playerHealth2 = 100;
     //public static int noOfMovements = 3; // use if separating shooting and movement
     //public static int bulletAmmo = 3; // use if separating shooting and movement
-    public static int amountOfActions = 10; // use if combining shooting and movement
+    public static int amountOfActions = 3; // use if combining shooting and movement
     public static float amountOfMovementMeter;
     public static float amountOfTimeToMove = 5f;
 
@@ -35,13 +35,13 @@ public class PlayerAttributes : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            amountOfActions = 5;
+            amountOfActions = 3;
         }
-        /*if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            noOfMovements = 3;
+            amountOfMovementMeter = 0f;
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        /*if (Input.GetKeyDown(KeyCode.X))
         {
             bulletAmmo = 3;
         }*/
