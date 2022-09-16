@@ -15,6 +15,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickUpManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerAttributes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Inspection/MetadataCollectionAdaptor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Inspection/MetadataListAdaptor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -73,7 +75,9 @@
       <option name="presentableId" value="Default" />
       <updated>1663151809522</updated>
       <workItem from="1663151811021" duration="13305000" />
-      <workItem from="1663224557639" duration="23143000" />
+      <workItem from="1663224557639" duration="23870000" />
+      <workItem from="1663311769965" duration="23000" />
+      <workItem from="1663311826327" duration="345000" />
     </task>
     <servers />
   </component>
