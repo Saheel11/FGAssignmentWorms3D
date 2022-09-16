@@ -63,6 +63,45 @@ public class TurnManager : MonoBehaviour
    {
       return players[currentPlayerIndex - 1];
    }
+
+   public void ItIsPlayerOnesTurn()
+   {
+      players[1].gameObject.GetComponent<PlayerController>().enabled = false;
+      players[1].gameObject.GetComponentInChildren<Weapon>().enabled = false;
+                
+      players[1].gameObject.GetComponent<PlayerAttributes>().enabled = true;
+                
+      camTargetFollowers[1].gameObject.GetComponent<CameraTargetFollow>().enabled = false;
+      vCameras[1].gameObject.SetActive(false);
+                
+                
+      players[0].gameObject.GetComponent<PlayerController>().enabled = true;
+      players[0].gameObject.GetComponentInChildren<Weapon>().enabled = true;
+                
+      players[0].gameObject.GetComponent<PlayerAttributes>().enabled = false;
+                
+      camTargetFollowers[0].gameObject.GetComponent<CameraTargetFollow>().enabled = true;
+      vCameras[0].gameObject.SetActive(true);
+   }
+
+   public void ItIsPlayerTwosTurn()
+   {
+      players[0].gameObject.GetComponent<PlayerController>().enabled = false;
+      players[0].gameObject.GetComponentInChildren<Weapon>().enabled = false;
+                
+      players[0].gameObject.GetComponent<PlayerAttributes>().enabled = true;
+                
+      camTargetFollowers[0].gameObject.GetComponent<CameraTargetFollow>().enabled = false;
+      vCameras[0].gameObject.SetActive(false);
+                
+      players[1].gameObject.GetComponent<PlayerController>().enabled = true;
+      players[1].gameObject.GetComponentInChildren<Weapon>().enabled = true;
+                
+      players[1].gameObject.GetComponent<PlayerAttributes>().enabled = false;
+                
+      camTargetFollowers[1].gameObject.GetComponent<CameraTargetFollow>().enabled = true;
+      vCameras[1].gameObject.SetActive(true);
+   }
    
       
 }
