@@ -110,8 +110,8 @@ GameObject:
   - component: {fileID: 8251206361646510645}
   - component: {fileID: 8251206361646510644}
   - component: {fileID: 8251206361646510648}
-  - component: {fileID: 8251206361646510649}
   - component: {fileID: 5043382497150976538}
+  - component: {fileID: 8251206361646510649}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -215,6 +215,21 @@ MonoBehaviour:
   agent: {fileID: 8251206361646510649}
   playerIndex: 1
   amountOfTimeToMove: 5
+--- !u!114 &5043382497150976538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251206361646510643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c58dc6b7f178fc439225c42caf1b188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  startAmountOfActions: 3
+  startMovementMeter: 0
 --- !u!195 &8251206361646510649
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -237,20 +252,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5043382497150976538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8251206361646510643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c58dc6b7f178fc439225c42caf1b188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  startAmountOfActions: 3
 --- !u!1 &8251206362497545205
 GameObject:
   m_ObjectHideFlags: 0
