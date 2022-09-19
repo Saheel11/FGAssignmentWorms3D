@@ -59,12 +59,12 @@ public class TurnManager : MonoBehaviour
       }
    }
 
-   public GameObject FindCurrentPlayer()
+   /*public GameObject FindCurrentPlayer()
    {
       return players[currentPlayerIndex - 1];
-   }
+   }*/
 
-   public void ItIsPlayerOnesTurn()
+   public void ItIsPlayerOnesTurn() //Change camera and controls and attributes if Player 1
    {
       players[1].gameObject.GetComponent<PlayerController>().enabled = false;
       players[1].gameObject.GetComponentInChildren<Weapon>().enabled = false;
@@ -84,7 +84,7 @@ public class TurnManager : MonoBehaviour
       vCameras[0].gameObject.SetActive(true);
    }
 
-   public void ItIsPlayerTwosTurn()
+   public void ItIsPlayerTwosTurn() //Change camera and controls and attributes if Player 2
    {
       players[0].gameObject.GetComponent<PlayerController>().enabled = false;
       players[0].gameObject.GetComponentInChildren<Weapon>().enabled = false;

@@ -59,44 +59,11 @@ public class PlayerController : MonoBehaviour
             if (tM.IsItPlayersTurn(1)) 
             {
                 tM.ItIsPlayerOnesTurn();
-                /*tM.players[1].gameObject.GetComponent<PlayerController>().enabled = false;
-                tM.players[1].gameObject.GetComponentInChildren<Weapon>().enabled = false;
-                
-                tM.players[1].gameObject.GetComponent<PlayerAttributes>().enabled = true;
-                
-                tM.camTargetFollowers[1].gameObject.GetComponent<CameraTargetFollow>().enabled = false;
-                tM.vCameras[1].gameObject.SetActive(false);
-                
-                
-                tM.players[0].gameObject.GetComponent<PlayerController>().enabled = true;
-                tM.players[0].gameObject.GetComponentInChildren<Weapon>().enabled = true;
-                
-                tM.players[0].gameObject.GetComponent<PlayerAttributes>().enabled = false;
-                
-                tM.camTargetFollowers[0].gameObject.GetComponent<CameraTargetFollow>().enabled = true;
-                tM.vCameras[0].gameObject.SetActive(true);*/
-                
-                
             }
             //Change camera and controls and attributes if Player 2
             if (tM.IsItPlayersTurn(2)) 
             {
                 tM.ItIsPlayerTwosTurn();
-                /*tM.players[0].gameObject.GetComponent<PlayerController>().enabled = false;
-                tM.players[0].gameObject.GetComponentInChildren<Weapon>().enabled = false;
-                
-                tM.players[0].gameObject.GetComponent<PlayerAttributes>().enabled = true;
-                
-                tM.camTargetFollowers[0].gameObject.GetComponent<CameraTargetFollow>().enabled = false;
-                tM.vCameras[0].gameObject.SetActive(false);
-                
-                tM.players[1].gameObject.GetComponent<PlayerController>().enabled = true;
-                tM.players[1].gameObject.GetComponentInChildren<Weapon>().enabled = true;
-                
-                tM.players[1].gameObject.GetComponent<PlayerAttributes>().enabled = false;
-                
-                tM.camTargetFollowers[1].gameObject.GetComponent<CameraTargetFollow>().enabled = true;
-                tM.vCameras[1].gameObject.SetActive(true);*/
             }
         }
         

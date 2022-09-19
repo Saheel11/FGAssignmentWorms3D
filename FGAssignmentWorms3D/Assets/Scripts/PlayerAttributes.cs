@@ -19,20 +19,15 @@ public class PlayerAttributes : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        playerHealth = 100;
+        playerHealth2 = 100;
     }
 
     private void Update()
     {
-        if (playerHealth == 0)
-        {
-            this.gameObject.SetActive(false);
-        }
-
-        if (playerHealth2 == 0)
-        {
-            this.gameObject.SetActive(false);
-        }
-
+        IsPlayerOneDead();
+        IsPlayerTwoDead();
+        
         if (Input.GetKeyDown(KeyCode.X))
         {
             ResetPlayerActions();
@@ -75,8 +70,24 @@ public class PlayerAttributes : MonoBehaviour
 
     public static void ResetPlayerActions()
     {
-        PlayerAttributes.amountOfActions = 3; 
-        PlayerAttributes.amountOfMovementMeter = 0f;
+        amountOfActions = 3; 
+        amountOfMovementMeter = 0f;
+    }
+
+    private void IsPlayerOneDead()
+    {
+        if (playerHealth == 0)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+    
+    private void IsPlayerTwoDead()
+    {
+        if (playerHealth2 == 0)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
     
     /////////////////Stuff i might need later

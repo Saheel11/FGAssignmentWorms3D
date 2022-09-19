@@ -20,13 +20,13 @@ public class UIController : MonoBehaviour
     //[SerializeField] private Image player1HealthImage;
     //[SerializeField] private Image player2HealthImage;
 
-    /*private void Awake()
+    private void Awake()
     {
         Debug.Log("new game");
         gameOverImage.gameObject.SetActive(false);
         gameOver2Image.gameObject.SetActive(false);
         
-    }*/
+    }
 
     private void Update()
     {
@@ -34,20 +34,27 @@ public class UIController : MonoBehaviour
         player2HealthSlider.value = PlayerAttributes.playerHealth2;
         movementSlider.value = PlayerAttributes.amountOfMovementMeter;
         actionMeterSlider.value = PlayerAttributes.amountOfActions;
+        EnableGameOver2Image();
+        EnableGameOverImage();
+    }
 
+    private void EnableGameOverImage()
+    {
         if (PlayerAttributes.playerHealth == 0)
         {
             gameOverImage.gameObject.SetActive(true);
-            //Time.timeScale = 0f;
-        }
-
-        if (PlayerAttributes.playerHealth2 == 0)
-        {
-            gameOver2Image.gameObject.SetActive(true);
-            //Time.timeScale = 0f;
+            Time.timeScale = 0f;
         }
     }
 
+    private void EnableGameOver2Image()
+    {
+        if (PlayerAttributes.playerHealth2 == 0)
+        {
+            gameOver2Image.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
     public void DisableGameOverImage()
     {
         gameOverImage.gameObject.SetActive(false);
