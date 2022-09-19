@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
         }
         if (agent.velocity != new Vector3(0,0,0)) // if it reaches amountOfTimeToMove, the player can not move anymore
         {
-            
             PlayerAttributes.IncreaseMovementMeter();
         }
 

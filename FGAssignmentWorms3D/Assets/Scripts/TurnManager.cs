@@ -25,6 +25,7 @@ public class TurnManager : MonoBehaviour
          players[1].gameObject.GetComponent<PlayerController>().enabled = false;
          players[0].gameObject.GetComponent<PlayerAttributes>().enabled = false;
          players[1].gameObject.GetComponentInChildren<Weapon>().enabled = false;
+         vCameras[1].gameObject.SetActive(false);
          camTargetFollowers[1].gameObject.GetComponent<CameraTargetFollow>().enabled = false;
       }
    }
