@@ -7,18 +7,13 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    //[SerializeField] private float damage = 10f;
     [SerializeField] private float range = 100f;
     [SerializeField] private float bulletSpeed = 30f;
-    //[SerializeField] private int bulletAmmo = 3;
+
     
     [SerializeField] private GameObject bullet;
     [SerializeField] private LayerMask whatToHit;
-
-    private float rotationX = 0;
     
-    
-    //[SerializeField]
     
     private Transform weaponFirePoint;
 
@@ -44,10 +39,6 @@ public class Weapon : MonoBehaviour
         {
             transform.LookAt(hit.point);
         }
-
-        rotationX = Mathf.Clamp(rotationX, 0, 0);
-
-
     }
 
     void ShootWeapon()
@@ -57,11 +48,7 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(mouseRay, out hit, range))
         {
-            Debug.Log(hit.point);
             SpawnBullet();
-            
-            //transform.rotation.eulerAngles.x = Mathf.Clamp(transform.eulerAngles.x, -90, 90);
-            
         }
 
     }

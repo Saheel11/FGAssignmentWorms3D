@@ -7,6 +7,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private GameObject bulletExplosionPrefab;
+    [SerializeField] private int bulletDamage = 10;
 
     private Transform bulletTransform;
     private void OnCollisionEnter(Collision collision)
@@ -18,12 +19,12 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerAttributes.LoseHealth();
+            PlayerAttributes.playerHealth = PlayerAttributes.playerHealth - bulletDamage;
             Debug.Log("player has " + PlayerAttributes.playerHealth + " health left");
         }
         if (collision.gameObject.CompareTag("Player2"))
         {
-            PlayerAttributes.LoseHealth2();
+            PlayerAttributes.playerHealth2 = PlayerAttributes.playerHealth2 - bulletDamage;
             Debug.Log("player has " + PlayerAttributes.playerHealth2 + " health left");
         }
 

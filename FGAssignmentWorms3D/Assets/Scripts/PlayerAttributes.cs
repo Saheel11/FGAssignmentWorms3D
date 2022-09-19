@@ -8,19 +8,19 @@ public class PlayerAttributes : MonoBehaviour
 {
 
     private static PlayerAttributes instance;
-    public static int playerHealth = 100;
-    public static int playerHealth2 = 100;
-    //public static int noOfMovements = 3; // use if separating shooting and movement
-    //public static int bulletAmmo = 3; // use if separating shooting and movement
-    public static int amountOfActions = 3; // use if combining shooting and movement
+    [SerializeField] private int maxHealth = 100;
+    
+    public static int playerHealth;
+    public static int playerHealth2;
+    public static int amountOfActions = 3;
     public static float amountOfMovementMeter;
-    public static float amountOfTimeToMove = 5f;
+    //public static float amountOfTimeToMove = 5f;
 
     private void Awake()
     {
         instance = this;
-        playerHealth = 100;
-        playerHealth2 = 100;
+        playerHealth = maxHealth;
+        playerHealth2 = maxHealth;
     }
 
     private void Update()
@@ -32,14 +32,7 @@ public class PlayerAttributes : MonoBehaviour
         {
             ResetPlayerActions();
         }
-        /*if (Input.GetKeyDown(KeyCode.C))
-        {
-            amountOfMovementMeter = 0f;
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            bulletAmmo = 3;
-        }*/
+
     }
 
     public static PlayerAttributes GetPlayerAttributesInstance()
@@ -47,15 +40,7 @@ public class PlayerAttributes : MonoBehaviour
         return instance;
     }
     
-    public static void LoseHealth()
-    {
-        playerHealth = playerHealth - 10;
-    }
 
-    public static void LoseHealth2() // change name
-    {
-        playerHealth2 = playerHealth2 - 10;
-    }
     public static void DecreaseAmountOfActionsLeft()
     {
         amountOfActions--;
@@ -102,6 +87,17 @@ public class PlayerAttributes : MonoBehaviour
     {
         bulletAmmo--;
         Debug.Log("Player has" + bulletAmmo + " bullets left");
-    }*/
+    }
+    
+        public static void LoseHealth()
+    {
+        playerHealth = playerHealth - 10;
+    }
+
+    public static void LoseHealth2() // change name
+    {
+        playerHealth2 = playerHealth2 - 10;
+    }
+    */
     
 }
