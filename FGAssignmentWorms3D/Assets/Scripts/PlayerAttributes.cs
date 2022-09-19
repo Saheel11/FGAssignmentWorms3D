@@ -8,9 +8,10 @@ public class PlayerAttributes : MonoBehaviour
 {
 
     private static PlayerAttributes instance;
-    
-    [SerializeField] private int maxHealth = 100;
-    [SerializeField] private int startAmountOfActions = 3;
+
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int startAmountOfActions;
+    [SerializeField] private int startMovementMeter;
     
     public static int playerHealth;
     public static int playerHealth2;
@@ -24,6 +25,7 @@ public class PlayerAttributes : MonoBehaviour
         playerHealth = maxHealth;
         playerHealth2 = maxHealth;
         amountOfActions = startAmountOfActions;
+        amountOfMovementMeter = startMovementMeter;
     }
 
     private void Update()
@@ -56,10 +58,10 @@ public class PlayerAttributes : MonoBehaviour
         //Debug.Log(("movement meter is " + amountOfMovementMeter));
     }
 
-    public static void ResetPlayerActions() //using as god mode
+    public void ResetPlayerActions()
     {
-        amountOfActions = 3; 
-        amountOfMovementMeter = 0f;
+        amountOfActions = startAmountOfActions;
+        amountOfMovementMeter = startMovementMeter;
     }
 
     private void IsPlayerOneDead()

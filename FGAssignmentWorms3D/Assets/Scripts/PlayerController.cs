@@ -48,9 +48,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TurnManager.ChangeTurn();
+            agent.GetComponent<PlayerAttributes>().ResetPlayerActions(); //calls to reset players action and movement meter
+            
             agent.SetDestination(transform.position); // stop player from moving when switching controls
             
-            PlayerAttributes.ResetPlayerActions();
+            
             
             TurnManager tM = TurnManager.GetInstance(); //Access TurnManager class
             
