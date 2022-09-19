@@ -2489,7 +2489,7 @@ GameObject:
   - component: {fileID: 403215333}
   - component: {fileID: 403215332}
   m_Layer: 5
-  m_Name: Player1Text (1)
+  m_Name: Player2Text (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2535,7 +2535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 1
+  m_text: Player 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4112,18 +4112,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 594401039}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: DisableGameOver2Image
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 594401035}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: EndGame
@@ -4334,18 +4322,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 594401039}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: DisableGameOverImage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 594401035}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: EndGame
@@ -9779,11 +9755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251206361646510649, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
       propertyPath: m_Speed
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8251206361646510649, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
       propertyPath: m_Acceleration
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8251206362497545205, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
       propertyPath: m_Name
@@ -9803,7 +9779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251206362497545206, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.62
+      value: 21.2
       objectReference: {fileID: 0}
     - target: {fileID: 8251206362497545206, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9811,7 +9787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251206362497545206, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 45.35
+      value: 8.1
       objectReference: {fileID: 0}
     - target: {fileID: 8251206362497545206, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9915,8 +9891,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340020478}
-  m_LocalRotation: {x: -0.0023261358, y: 0.99247646, z: -0.120915696, w: -0.01909293}
-  m_LocalPosition: {x: 22.743076, y: 3.771, z: 48.54763}
+  m_LocalRotation: {x: -0.0023261374, y: 0.99247646, z: -0.12091569, w: -0.019092945}
+  m_LocalPosition: {x: 21.323076, y: 3.771, z: 11.297632}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17773,11 +17749,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251206361646510649, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
       propertyPath: m_Speed
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8251206361646510649, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
       propertyPath: m_Acceleration
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8251206362497545205, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
       propertyPath: m_Name

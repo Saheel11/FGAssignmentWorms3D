@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public class DestroyObject : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
+    [SerializeField] private GameObject bulletExplosionPrefab;
+
+    private Transform bulletTransform;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Destroyable"))
@@ -24,6 +27,10 @@ public class DestroyObject : MonoBehaviour
             Debug.Log("player has " + PlayerAttributes.playerHealth2 + " health left");
         }
 
+        bulletTransform = this.gameObject.transform;
+        GameObject bulletExplosionClone = Instantiate(bulletExplosionPrefab, bulletTransform.transform.position, 
+            bulletTransform.transform.rotation);
+        Destroy(bulletExplosionClone, 1f);
         Destroy(this.gameObject);
 
     }

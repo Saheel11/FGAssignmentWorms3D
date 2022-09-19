@@ -10,7 +10,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../../2D Platformer For Fun/Assets/ScriptsOwn/Weapon.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraTargetFollow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickUpManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -78,7 +77,8 @@
       <workItem from="1663151811021" duration="13305000" />
       <workItem from="1663224557639" duration="23870000" />
       <workItem from="1663311769965" duration="23000" />
-      <workItem from="1663311826327" duration="17948000" />
+      <workItem from="1663311826327" duration="18145000" />
+      <workItem from="1663571090632" duration="7418000" />
     </task>
     <servers />
   </component>
