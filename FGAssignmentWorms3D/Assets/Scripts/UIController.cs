@@ -43,7 +43,7 @@ public class UIController : MonoBehaviour
         if (PlayerAttributes.playerHealth == 0)
         {
             gameOverImage.gameObject.SetActive(true);
-            Time.timeScale = 0f;
+            Time.timeScale = 0f; // pause game
         }
     }
 
@@ -52,22 +52,19 @@ public class UIController : MonoBehaviour
         if (PlayerAttributes.playerHealth2 == 0)
         {
             gameOver2Image.gameObject.SetActive(true);
-            Time.timeScale = 0f;
+            Time.timeScale = 0f; // pause game
         }
     }
-    public void DisableGameOverImage()
+    
+    /*public void DisableGameOverImage()
     {
         gameOverImage.gameObject.SetActive(false);
     }
     public void DisableGameOver2Image()
     {
         gameOver2Image.gameObject.SetActive(false);
-    }
+    }*/
     
-
-    private void LateUpdate()
-    {
-        
-    }
+    
     
 }

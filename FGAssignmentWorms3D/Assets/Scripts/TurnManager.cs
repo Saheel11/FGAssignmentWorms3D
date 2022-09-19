@@ -21,18 +21,13 @@ public class TurnManager : MonoBehaviour
       {
          instance = this;
          currentPlayerIndex = 1;
-         Debug.Log("its player" + currentPlayerIndex);
+         Debug.Log("it is player" + currentPlayerIndex);
          players[1].gameObject.GetComponent<PlayerController>().enabled = false;
          players[0].gameObject.GetComponent<PlayerAttributes>().enabled = false;
          players[1].gameObject.GetComponentInChildren<Weapon>().enabled = false;
          vCameras[1].gameObject.SetActive(false);
          camTargetFollowers[1].gameObject.GetComponent<CameraTargetFollow>().enabled = false;
       }
-   }
-
-   private void Update()
-   {
-
    }
 
    public bool IsItPlayersTurn(int index)
@@ -59,11 +54,6 @@ public class TurnManager : MonoBehaviour
          Debug.Log("switched to player 1");
       }
    }
-
-   /*public GameObject FindCurrentPlayer()
-   {
-      return players[currentPlayerIndex - 1];
-   }*/
 
    public void ItIsPlayerOnesTurn() //Change camera and controls and attributes if Player 1
    {

@@ -8,11 +8,13 @@ public class PlayerAttributes : MonoBehaviour
 {
 
     private static PlayerAttributes instance;
+    
     [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int startAmountOfActions = 3;
     
     public static int playerHealth;
     public static int playerHealth2;
-    public static int amountOfActions = 3;
+    public static int amountOfActions;
     public static float amountOfMovementMeter;
     //public static float amountOfTimeToMove = 5f;
 
@@ -21,6 +23,7 @@ public class PlayerAttributes : MonoBehaviour
         instance = this;
         playerHealth = maxHealth;
         playerHealth2 = maxHealth;
+        amountOfActions = startAmountOfActions;
     }
 
     private void Update()
@@ -53,7 +56,7 @@ public class PlayerAttributes : MonoBehaviour
         //Debug.Log(("movement meter is " + amountOfMovementMeter));
     }
 
-    public static void ResetPlayerActions()
+    public static void ResetPlayerActions() //using as god mode
     {
         amountOfActions = 3; 
         amountOfMovementMeter = 0f;
