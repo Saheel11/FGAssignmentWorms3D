@@ -33,7 +33,7 @@ public class UIController : MonoBehaviour
         player1HealthSlider.value = PlayerAttributes.playerHealth;
         player2HealthSlider.value = PlayerAttributes.playerHealth2;
         movementSlider.value = PlayerAttributes.amountOfMovementMeter;
-        actionMeterSlider.value = PlayerAttributes.amountOfActions;
+        actionMeterSlider.value = PlayerAttributes.GetPlayerAttributesInstance().amountOfActionsTest;
         EnableGameOver2Image();
         EnableGameOverImage();
     }

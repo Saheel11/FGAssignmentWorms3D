@@ -9,10 +9,15 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
    private static TurnManager instance;
-   private static int currentPlayerIndex;
+   [SerializeField] private PlayerTurn playerOne;
+   [SerializeField] private PlayerTurn playerTwo;
+   [SerializeField] private PlayerTurn playerThree;
+   
    public GameObject[] players;
    public CinemachineVirtualCamera[] vCameras;
    public GameObject[] camTargetFollowers;
+   private int currentPlayerIndex;
+   private bool waitingForNexTurn;
    
 
    private void Awake()
@@ -21,18 +26,41 @@ public class TurnManager : MonoBehaviour
       {
          instance = this;
          currentPlayerIndex = 1;
+         playerOne.SetPlayerTurn(1);
+         playerTwo.SetPlayerTurn(2);
+         playerThree.SetPlayerTurn(3);
          Debug.Log("it is player" + currentPlayerIndex);
-         players[1].gameObject.GetComponent<PlayerController>().enabled = false;
-         players[1].gameObject.GetComponent<PlayerAttributes>().enabled = false;
-         players[1].gameObject.GetComponentInChildren<Weapon>().enabled = false;
-         vCameras[1].gameObject.SetActive(false);
-         camTargetFollowers[1].gameObject.GetComponent<CameraTargetFollow>().enabled = false;
       }
+   }
+
+   private void Update()
+   {
+      if (Input.GetKeyDown(KeyCode.Space))
+      {
+         ChangeTurn();
+         playerOne.GetComponent<PlayerAttributes>().ResetPlayerActions();
+         playerTwo.GetComponent<PlayerAttributes>().ResetPlayerActions();
+         playerThree.GetComponent<PlayerAttributes>().ResetPlayerActions();
+      }
+      /*if (waitingForNexTurn)
+      {
+         ChangeTurn();
+      }*/
    }
 
    public bool IsItPlayersTurn(int index)
    {
+      if (waitingForNexTurn)
+      {
+         return false;
+      }
+
       return index == currentPlayerIndex;
+   }
+
+   public void TriggerChangeTurn() //use if want to use timer
+   {
+      waitingForNexTurn = true;
    }
 
    public static TurnManager GetInstance()
@@ -40,59 +68,32 @@ public class TurnManager : MonoBehaviour
       return instance;
    }
 
-   public static void ChangeTurn()
+   private void ChangeTurn()
    {
       if (currentPlayerIndex == 1)
       {
          currentPlayerIndex = 2;
+         vCameras[0].Priority = 1;
+         vCameras[1].Priority = 2;
+         vCameras[2].Priority = 1;
          Debug.Log("switched to player 2");
       }
       
       else if (currentPlayerIndex == 2)
       {
+         currentPlayerIndex = 3;
+         vCameras[0].Priority = 1;
+         vCameras[1].Priority = 1;
+         vCameras[2].Priority = 2;
+         Debug.Log("switched to player 3");
+      }
+      else if (currentPlayerIndex == 3)
+      {
          currentPlayerIndex = 1;
+         vCameras[0].Priority = 2;
+         vCameras[1].Priority = 1;
+         vCameras[2].Priority = 1;
          Debug.Log("switched to player 1");
       }
    }
-
-   public void ItIsPlayerOnesTurn() //Change camera and controls and attributes if Player 1
-   {
-      players[1].gameObject.GetComponent<PlayerController>().enabled = false;
-      players[1].gameObject.GetComponentInChildren<Weapon>().enabled = false;
-                
-      players[1].gameObject.GetComponent<PlayerAttributes>().enabled = false;
-                
-      camTargetFollowers[1].gameObject.GetComponent<CameraTargetFollow>().enabled = false;
-      vCameras[1].gameObject.SetActive(false);
-                
-                
-      players[0].gameObject.GetComponent<PlayerController>().enabled = true;
-      players[0].gameObject.GetComponentInChildren<Weapon>().enabled = true;
-                
-      players[0].gameObject.GetComponent<PlayerAttributes>().enabled = true;
-                
-      camTargetFollowers[0].gameObject.GetComponent<CameraTargetFollow>().enabled = true;
-      vCameras[0].gameObject.SetActive(true);
-   }
-
-   public void ItIsPlayerTwosTurn() //Change camera and controls and attributes if Player 2
-   {
-      players[0].gameObject.GetComponent<PlayerController>().enabled = false;
-      players[0].gameObject.GetComponentInChildren<Weapon>().enabled = false;
-                
-      players[0].gameObject.GetComponent<PlayerAttributes>().enabled = false;
-                
-      camTargetFollowers[0].gameObject.GetComponent<CameraTargetFollow>().enabled = false;
-      vCameras[0].gameObject.SetActive(false);
-                
-      players[1].gameObject.GetComponent<PlayerController>().enabled = true;
-      players[1].gameObject.GetComponentInChildren<Weapon>().enabled = true;
-                
-      players[1].gameObject.GetComponent<PlayerAttributes>().enabled = true;
-                
-      camTargetFollowers[1].gameObject.GetComponent<CameraTargetFollow>().enabled = true;
-      vCameras[1].gameObject.SetActive(true);
-   }
-   
-      
 }

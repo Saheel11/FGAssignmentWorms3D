@@ -113,6 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4582fd1e266331409a6779c0460bc5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  addAmountOfActions: 2
+  playerTurn: {fileID: 4180929007308506590, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
 --- !u!54 &3135039202982733102
 Rigidbody:
   m_ObjectHideFlags: 0

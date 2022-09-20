@@ -12,10 +12,14 @@ public class PlayerAttributes : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private int startAmountOfActions;
     [SerializeField] private int startMovementMeter;
+
+    public int playerHealthTest;
+    public int amountOfActionsTest;
+    public float amountOfMovementMeterTest;
     
     public static int playerHealth;
     public static int playerHealth2;
-    public static int amountOfActions;
+    //public static int amountOfActions;
     public static float amountOfMovementMeter;
     //public static float amountOfTimeToMove = 5f;
 
@@ -24,8 +28,12 @@ public class PlayerAttributes : MonoBehaviour
         instance = this;
         playerHealth = maxHealth;
         playerHealth2 = maxHealth;
-        amountOfActions = startAmountOfActions;
+        //amountOfActions = startAmountOfActions;
         amountOfMovementMeter = startMovementMeter;
+        // DO OVER
+        playerHealthTest = maxHealth;
+        amountOfActionsTest = startAmountOfActions;
+        amountOfMovementMeterTest = startMovementMeter;
     }
 
     private void Update()
@@ -46,10 +54,15 @@ public class PlayerAttributes : MonoBehaviour
     }
     
 
-    public static void DecreaseAmountOfActionsLeft()
+    public void DecreaseAmountOfActionsLeft()
     {
-        amountOfActions--;
-        Debug.Log("Player has" + amountOfActions + " actions left");
+        amountOfActionsTest--;
+        Debug.Log("Player has" + amountOfActionsTest + " actions left");
+    }
+    public void IncreaseAmountOfActionsLeft()
+    {
+        amountOfActionsTest++;
+        Debug.Log("Player has" + amountOfActionsTest + " actions left");
     }
 
     public static void IncreaseMovementMeter()
@@ -60,7 +73,7 @@ public class PlayerAttributes : MonoBehaviour
 
     public void ResetPlayerActions()
     {
-        amountOfActions = startAmountOfActions;
+        amountOfActionsTest = startAmountOfActions;
         amountOfMovementMeter = startMovementMeter;
     }
 

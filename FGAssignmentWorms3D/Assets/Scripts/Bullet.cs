@@ -19,6 +19,8 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            PlayerAttributes.GetPlayerAttributesInstance().playerHealthTest -= bulletDamage;
+            
             PlayerAttributes.playerHealth = PlayerAttributes.playerHealth - bulletDamage;
             Debug.Log("player1 has " + PlayerAttributes.playerHealth + " health left");
         }

@@ -6,14 +6,18 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     [SerializeField] private int addAmountOfActions = 2;
+    [SerializeField] private PlayerTurn playerTurn;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player" ) || other.gameObject.CompareTag("Player2"))
+        bool IsPlayerTurn = playerTurn.IsPlayerTurn();
+        if (IsPlayerTurn)
         {
-            PlayerAttributes.amountOfActions = PlayerAttributes.amountOfActions + addAmountOfActions;
-            Debug.Log("you have" + PlayerAttributes.amountOfActions + " actions left");
-            Destroy(gameObject);
+            if (other.gameObject.CompareTag("Player"))
+            {
+                PlayerAttributes.GetPlayerAttributesInstance().IncreaseAmountOfActionsLeft();
+                Debug.Log("you have" + PlayerAttributes.GetPlayerAttributesInstance().amountOfActionsTest + " actions left");
+                Destroy(gameObject);
+            }
         }
-
     }
 }

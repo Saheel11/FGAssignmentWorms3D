@@ -9,10 +9,13 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] private float range = 100f;
     [SerializeField] private float bulletSpeed = 30f;
-
+    
     
     [SerializeField] private GameObject bullet;
     [SerializeField] private LayerMask whatToHit;
+    
+    //Testing playerturn
+    [SerializeField] private PlayerTurn playerTurn;
     
     
     private Transform weaponFirePoint;
@@ -27,13 +30,26 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
-        RaycastHit hit; 
-        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        bool IsPlayerTurn = playerTurn.IsPlayerTurn();
         
-        if (Physics.Raycast(mouseRay, out hit, range))
+        //if(TurnManager.GetInstance().IsItPlayersTurn(playerIndex))
+        
+        if (IsPlayerTurn)
         {
-            transform.LookAt(hit.point);
+            RaycastHit hit; 
+            Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
+            if (Physics.Raycast(mouseRay, out hit, range))
+            {
+                transform.LookAt(hit.point);
+            }
+            
+            if (Input.GetMouseButtonDown(1) && PlayerAttributes.GetPlayerAttributesInstance().amountOfActionsTest > 0)
+            {
+                ShootWeapon();
+            }
         }
+ 
     }
 
     public void ShootWeapon()
@@ -53,7 +69,7 @@ public class Weapon : MonoBehaviour
         GameObject bulletGO = Instantiate(bullet, weaponFirePoint.transform.position, weaponFirePoint.transform.rotation);
         bulletGO.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
         Destroy(bulletGO, 2f);
-        PlayerAttributes.DecreaseAmountOfActionsLeft();
+        PlayerAttributes.GetPlayerAttributesInstance().DecreaseAmountOfActionsLeft();
     }
     
     
