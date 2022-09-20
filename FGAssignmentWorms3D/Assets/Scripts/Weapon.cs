@@ -32,9 +32,7 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         bool IsPlayerTurn = playerTurn.IsPlayerTurn();
-        
-        //if(TurnManager.GetInstance().IsItPlayersTurn(playerIndex))
-        
+
         if (IsPlayerTurn)
         {
             RaycastHit hit; 
