@@ -20,12 +20,12 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerAttributes.playerHealth = PlayerAttributes.playerHealth - bulletDamage;
-            Debug.Log("player has " + PlayerAttributes.playerHealth + " health left");
+            Debug.Log("player1 has " + PlayerAttributes.playerHealth + " health left");
         }
         if (collision.gameObject.CompareTag("Player2"))
         {
             PlayerAttributes.playerHealth2 = PlayerAttributes.playerHealth2 - bulletDamage;
-            Debug.Log("player has " + PlayerAttributes.playerHealth2 + " health left");
+            Debug.Log("player2 has " + PlayerAttributes.playerHealth2 + " health left");
         }
 
         bulletTransform = this.gameObject.transform;

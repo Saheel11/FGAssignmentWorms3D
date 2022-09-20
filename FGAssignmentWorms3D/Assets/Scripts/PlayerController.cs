@@ -1,20 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using Color = UnityEngine.Color;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
     //[SerializeField] private int playerIndex;
-    [SerializeField] private float amountOfTimeToMove = 5f;
+    [SerializeField] private float maxAmountOfTimeToMove = 5f;
+    
+    
     [SerializeField] private LineRenderer lineRenderer;
 
     void Update()
     {
-
-        Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Rotate Character to mouse position
+        Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition); 
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         float rayLength;
         if (groundPlane.Raycast(cameraRay,out rayLength))
@@ -23,22 +28,20 @@ public class PlayerController : MonoBehaviour
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.cyan);
             
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z ));
+            //Draws the path on the ground that the player moves by
+            lineRenderer.positionCount = agent.path.corners.Length;
+            lineRenderer.SetPositions(agent.path.corners);
+            
         }
 
-        if (Input.GetMouseButtonDown(0)) //&& PlayerAttributes.amountOfActions > 0
+            //moves players to where mouseclick is
+        if (Input.GetMouseButtonDown(0))
         {
             RaycastHit result;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            
-
-            if (Physics.Raycast(ray, out result, 100f) && PlayerAttributes.amountOfMovementMeter < amountOfTimeToMove)
+            if (Physics.Raycast(ray, out result, 100f) && PlayerAttributes.amountOfMovementMeter < maxAmountOfTimeToMove) // checks if there is movement left in the meter
             {
                 agent.SetDestination(result.point);
-                Vector3 start = transform.position;
-                Vector3 end = result.point;
-                lineRenderer.SetPosition(0, start);
-                lineRenderer.SetPosition(1, end);
-                //PlayerAttributes.DecreaseAmountOfActionsLeft(); Add this if you want to limit movement to action as well
             }
         }
         if (agent.velocity != new Vector3(0,0,0)) // if it reaches amountOfTimeToMove, the player can not move anymore
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour
             PlayerAttributes.IncreaseMovementMeter();
         }
 
-        if (PlayerAttributes.amountOfMovementMeter >= amountOfTimeToMove) // stops the player from moving when reaching max movement meter
+        if (PlayerAttributes.amountOfMovementMeter >= maxAmountOfTimeToMove) // stops the player from moving when reaching max movement meter
         {
             agent.velocity = new Vector3(0, 0, 0);
             //Debug.Log("Player can not move more");
@@ -56,7 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.GetComponentInChildren<Weapon>().ShootWeapon();
         }
-
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TurnManager.ChangeTurn();
@@ -76,10 +79,7 @@ public class PlayerController : MonoBehaviour
                 tM.ItIsPlayerTwosTurn();
             }
         }
-        
-        
+
     }
-
-
 
 }
