@@ -7,8 +7,9 @@ using UnityEngine.AI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private int playerIndex;
+    //[SerializeField] private int playerIndex;
     [SerializeField] private float amountOfTimeToMove = 5f;
+    [SerializeField] private LineRenderer lineRenderer;
 
     void Update()
     {
@@ -28,9 +29,15 @@ public class PlayerController : MonoBehaviour
         {
             RaycastHit result;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
+
             if (Physics.Raycast(ray, out result, 100f) && PlayerAttributes.amountOfMovementMeter < amountOfTimeToMove)
             {
                 agent.SetDestination(result.point);
+                Vector3 start = transform.position;
+                Vector3 end = result.point;
+                lineRenderer.SetPosition(0, start);
+                lineRenderer.SetPosition(1, end);
                 //PlayerAttributes.DecreaseAmountOfActionsLeft(); Add this if you want to limit movement to action as well
             }
         }
@@ -39,10 +46,15 @@ public class PlayerController : MonoBehaviour
             PlayerAttributes.IncreaseMovementMeter();
         }
 
-        if (PlayerAttributes.amountOfMovementMeter >= amountOfTimeToMove)
+        if (PlayerAttributes.amountOfMovementMeter >= amountOfTimeToMove) // stops the player from moving when reaching max movement meter
         {
             agent.velocity = new Vector3(0, 0, 0);
             //Debug.Log("Player can not move more");
+        }
+        
+        if (Input.GetMouseButtonDown(1) && PlayerAttributes.amountOfActions > 0)
+        {
+            gameObject.GetComponentInChildren<Weapon>().ShootWeapon();
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

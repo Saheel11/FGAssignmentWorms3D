@@ -27,11 +27,6 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && PlayerAttributes.amountOfActions > 0)
-        {
-            ShootWeapon();
-        }
-        
         RaycastHit hit; 
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         
@@ -41,7 +36,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    void ShootWeapon()
+    public void ShootWeapon()
     {
         RaycastHit hit; 
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
