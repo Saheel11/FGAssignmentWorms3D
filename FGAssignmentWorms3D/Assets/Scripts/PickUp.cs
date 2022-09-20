@@ -14,8 +14,8 @@ public class PickUp : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                PlayerAttributes.GetPlayerAttributesInstance().IncreaseAmountOfActionsLeft();
-                Debug.Log("you have" + PlayerAttributes.GetPlayerAttributesInstance().amountOfActionsTest + " actions left");
+                playerTurn.GetComponent<PlayerAttributes>().amountOfActions += addAmountOfActions;
+                Debug.Log("you have" + gameObject.GetComponent<PlayerAttributes>().amountOfActions + " actions left");
                 Destroy(gameObject);
             }
         }

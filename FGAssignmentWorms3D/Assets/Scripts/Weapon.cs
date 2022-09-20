@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
     
     
     [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject player;
     [SerializeField] private LayerMask whatToHit;
     
     //Testing playerturn
@@ -44,7 +45,7 @@ public class Weapon : MonoBehaviour
                 transform.LookAt(hit.point);
             }
             
-            if (Input.GetMouseButtonDown(1) && PlayerAttributes.GetPlayerAttributesInstance().amountOfActionsTest > 0)
+            if (Input.GetMouseButtonDown(1) && player.GetComponent<PlayerAttributes>().amountOfActions > 0 ) 
             {
                 ShootWeapon();
             }
@@ -69,7 +70,7 @@ public class Weapon : MonoBehaviour
         GameObject bulletGO = Instantiate(bullet, weaponFirePoint.transform.position, weaponFirePoint.transform.rotation);
         bulletGO.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
         Destroy(bulletGO, 2f);
-        PlayerAttributes.GetPlayerAttributesInstance().DecreaseAmountOfActionsLeft();
+        player.GetComponent<PlayerAttributes>().DecreaseAmountOfActionsLeft();
     }
     
     

@@ -12,60 +12,58 @@ public class PlayerAttributes : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private int startAmountOfActions;
     [SerializeField] private int startMovementMeter;
-
-    public int playerHealthTest;
-    public int amountOfActionsTest;
-    public float amountOfMovementMeterTest;
     
-    public static int playerHealth;
-    public static int playerHealth2;
-    //public static int amountOfActions;
-    public static float amountOfMovementMeter;
-    //public static float amountOfTimeToMove = 5f;
+    [SerializeField] private PlayerTurn playerTurn;
+
+    public int playerHealth;
+    public int amountOfActions;
+    public float amountOfMovementMeter;
+    
 
     private void Awake()
     {
-        instance = this;
         playerHealth = maxHealth;
-        playerHealth2 = maxHealth;
-        //amountOfActions = startAmountOfActions;
+        amountOfActions = startAmountOfActions;
         amountOfMovementMeter = startMovementMeter;
-        // DO OVER
-        playerHealthTest = maxHealth;
-        amountOfActionsTest = startAmountOfActions;
-        amountOfMovementMeterTest = startMovementMeter;
+        Debug.Log("Player has " +playerHealth +" hp");
     }
 
     private void Update()
     {
-        IsPlayerOneDead();
-        IsPlayerTwoDead();
+        bool IsPlayerTurn = playerTurn.IsPlayerTurn();
         
-        if (Input.GetKeyDown(KeyCode.X))
+        if (IsPlayerTurn)
         {
-            ResetPlayerActions();
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                ResetPlayerActions();
+            }
+
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                playerHealth -= 10;
+                Debug.Log("Player has" + playerHealth + " hp left");
+            }
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                Debug.Log("Player has" + amountOfActions + " actions and" + amountOfMovementMeter + " movement left");
+            }
         }
 
     }
 
-    public static PlayerAttributes GetPlayerAttributesInstance()
-    {
-        return instance;
-    }
-    
-
     public void DecreaseAmountOfActionsLeft()
     {
-        amountOfActionsTest--;
-        Debug.Log("Player has" + amountOfActionsTest + " actions left");
+        amountOfActions--;
+        Debug.Log("Player has" + amountOfActions + " actions left");
     }
     public void IncreaseAmountOfActionsLeft()
     {
-        amountOfActionsTest++;
-        Debug.Log("Player has" + amountOfActionsTest + " actions left");
+        amountOfActions++;
+        Debug.Log("Player has" + amountOfActions + " actions left");
     }
 
-    public static void IncreaseMovementMeter()
+    public void IncreaseMovementMeter()
     {
         amountOfMovementMeter = amountOfMovementMeter + Time.deltaTime;
         //Debug.Log(("movement meter is " + amountOfMovementMeter));
@@ -73,49 +71,9 @@ public class PlayerAttributes : MonoBehaviour
 
     public void ResetPlayerActions()
     {
-        amountOfActionsTest = startAmountOfActions;
+        amountOfActions = startAmountOfActions;
         amountOfMovementMeter = startMovementMeter;
     }
-
-    private void IsPlayerOneDead()
-    {
-        if (playerHealth == 0)
-        {
-            this.gameObject.SetActive(false);
-        }
-    }
     
-    private void IsPlayerTwoDead()
-    {
-        if (playerHealth2 == 0)
-        {
-            this.gameObject.SetActive(false);
-        }
-    }
-    
-    /////////////////Stuff i might need later
-
-    /*public static void AmountOfMovementClicks()
-    {
-        noOfMovements--;
-        Debug.Log("Player has " + noOfMovements + " movements left");
-    }*/
-
-    /*public static void AmountOfBulletsLeft()
-    {
-        bulletAmmo--;
-        Debug.Log("Player has" + bulletAmmo + " bullets left");
-    }
-    
-        public static void LoseHealth()
-    {
-        playerHealth = playerHealth - 10;
-    }
-
-    public static void LoseHealth2() // change name
-    {
-        playerHealth2 = playerHealth2 - 10;
-    }
-    */
     
 }

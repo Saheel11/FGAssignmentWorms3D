@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3581104516901347154}
   m_Layer: 7
   m_Name: Weapon
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,9 +50,11 @@ MonoBehaviour:
   range: 100
   bulletSpeed: 2000
   bullet: {fileID: 1435112520482990083, guid: 2c887f78416b03f4d9368c76fdc1fb53, type: 3}
+  player: {fileID: 7218208684636578339, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
   whatToHit:
     serializedVersion: 2
     m_Bits: 0
+  playerTurn: {fileID: 4180929007308506590, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
 --- !u!1 &7385052749909073571
 GameObject:
   m_ObjectHideFlags: 0

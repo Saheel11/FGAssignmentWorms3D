@@ -35,17 +35,13 @@ public class TurnManager : MonoBehaviour
 
    private void Update()
    {
-      if (Input.GetKeyDown(KeyCode.Space))
+      if (Input.GetKeyDown(KeyCode.Return))
       {
          ChangeTurn();
          playerOne.GetComponent<PlayerAttributes>().ResetPlayerActions();
          playerTwo.GetComponent<PlayerAttributes>().ResetPlayerActions();
          playerThree.GetComponent<PlayerAttributes>().ResetPlayerActions();
       }
-      /*if (waitingForNexTurn)
-      {
-         ChangeTurn();
-      }*/
    }
 
    public bool IsItPlayersTurn(int index)
