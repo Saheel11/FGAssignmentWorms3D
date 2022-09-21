@@ -24,8 +24,9 @@ public class Portal : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y,
-                destination.transform.position.z);
+            //other.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, destination.transform.position.z);
+            agents[currentAgent].Warp(new Vector3(destination.transform.position.x, destination.transform.position.y, 
+                destination.transform.position.z));
             
             //Added ResetPath() to stop the player moving to the position they clicked on before touching the portal
             agents[currentAgent].ResetPath();

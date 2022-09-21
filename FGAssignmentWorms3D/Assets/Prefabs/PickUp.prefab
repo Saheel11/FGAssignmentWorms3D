@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1120569307280410411}
   - component: {fileID: 3135039202982733102}
   - component: {fileID: 5448943995425076309}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,8 +114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   addAmountOfActions: 2
-  playerTurn: {fileID: 4180929007308506590, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
-  player: {fileID: 7218208684636578339, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
 --- !u!54 &3135039202982733102
 Rigidbody:
   m_ObjectHideFlags: 0

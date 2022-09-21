@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour
             RaycastHit hit; 
             Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         
-            if (Physics.Raycast(mouseRay, out hit, range))
+            if (Physics.Raycast(mouseRay, out hit, range, whatToHit))
             {
                 transform.LookAt(hit.point);
             }

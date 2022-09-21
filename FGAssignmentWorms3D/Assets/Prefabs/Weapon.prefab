@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2264454795616752033}
   - component: {fileID: 248278335071529093}
   - component: {fileID: 8603024418412799476}
-  - component: {fileID: 2746650686591667577}
   m_Layer: 0
   m_Name: BazookaHole
   m_TagString: Untagged
@@ -4953,20 +4952,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4372947701113744486}
   m_Mesh: {fileID: 0}
---- !u!64 &2746650686591667577
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4372947701113744486}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6353783849579568345
 GameObject:
   m_ObjectHideFlags: 0
@@ -4980,9 +4965,8 @@ GameObject:
   - component: {fileID: 1031703664012660987}
   - component: {fileID: 8350121848662616377}
   - component: {fileID: 1756011175251982180}
-  - component: {fileID: 5557683383006259627}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7997,20 +7981,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6353783849579568345}
   m_Mesh: {fileID: 0}
---- !u!64 &5557683383006259627
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6353783849579568345}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &7385052749680432493
 GameObject:
   m_ObjectHideFlags: 0
@@ -8059,12 +8029,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 100
-  bulletSpeed: 100
+  bulletSpeed: 150
   bullet: {fileID: 1435112520482990083, guid: 2c887f78416b03f4d9368c76fdc1fb53, type: 3}
   player: {fileID: 7218208684636578339, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
   whatToHit:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 695
   playerTurn: {fileID: 4180929007308506590, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
 --- !u!1 &8251206363030014317
 GameObject:

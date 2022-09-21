@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab188e32757779b41b03aa260e519189, type: 2}
+  - {fileID: 2100000, guid: d5f0c5cb753984846880f29b39891c13, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,10 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletExplosionPrefab: {fileID: 8765728057015399209, guid: be9805cfd59c94d46ae0615979d5cbbb, type: 3}
   bulletDamage: 10
-  player: {fileID: 8251206362497545205, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
-  player2: {fileID: 8251206362497545205, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
-  player3: {fileID: 8251206362497545205, guid: 177c2199ce72f8a448916006ad0dea2f, type: 3}
-  playerTurn: {fileID: 4180929007308506590, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
 --- !u!135 &1435112520482990080
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -125,7 +121,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435112520482990083}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
