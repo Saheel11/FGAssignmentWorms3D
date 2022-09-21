@@ -38,6 +38,7 @@ public class TurnManager : MonoBehaviour
       if (Input.GetKeyDown(KeyCode.Return))
       {
          ChangeTurn();
+         gameObject.GetComponent<UIController>().SetDefaultActionMeterSlider();
          //wallOfDeathCounter++; // if adding battle royale wall of death
          ResetPlayerActions();
          PickUpManager.GetInstance().SpawnNewPickUps();
