@@ -8,10 +8,6 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private GameObject bulletExplosionPrefab;
     [SerializeField] private int bulletDamage = 10;
-    [SerializeField] private GameObject player;
-    //[SerializeField] private GameObject player2;
-    //[SerializeField] private GameObject player3;
-    [SerializeField] private PlayerTurn playerTurn;
 
 
     private Transform bulletTransform;
@@ -21,17 +17,12 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Destroyable"))
         {
             Destroy(collision.gameObject);
+            Debug.Log("destroyed" + collision.gameObject);
         }
-        /*bool IsPlayerTurn = playerTurn.IsPlayerTurn();
-        
-        if (IsPlayerTurn)
-        {
-
-        }*/
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.gameObject.GetComponent<PlayerAttributes>().playerHealth -= bulletDamage;
-            Debug.Log("player1 has " + player.GetComponent<PlayerAttributes>().playerHealth + " health left");
+            collision.gameObject.GetComponent<PlayerAttributes>().playerHealth -= bulletDamage;
+            Debug.Log("player has " + collision.gameObject.GetComponent<PlayerAttributes>().playerHealth + " health left");
         }
 
 

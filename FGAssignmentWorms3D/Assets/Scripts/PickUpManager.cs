@@ -26,12 +26,9 @@ public class PickUpManager : MonoBehaviour
         return instance;
     }
 
-    private void Update()
+    public void SpawnNewPickUps()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            GameObject newPickUp = Instantiate(pickUpPrefab);
-            newPickUp.transform.position = new Vector3(Random.Range(0f, 50f), Random.Range(20f, 50f), Random.Range(0f, 50f));
-        }
+        GameObject newPickUp = Instantiate(pickUpPrefab);
+        newPickUp.transform.position = new Vector3(Random.Range(0f, 50f), Random.Range(20f, 50f), Random.Range(0f, 50f));
     }
 }

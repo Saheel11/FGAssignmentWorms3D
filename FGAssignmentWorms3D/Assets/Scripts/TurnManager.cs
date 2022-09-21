@@ -11,13 +11,13 @@ public class TurnManager : MonoBehaviour
    private static TurnManager instance;
    [SerializeField] private PlayerTurn playerOne;
    [SerializeField] private PlayerTurn playerTwo;
-   [SerializeField] private PlayerTurn playerThree;
+   //[SerializeField] private PlayerTurn playerThree;
+   [SerializeField] private GameObject wallOfDeath;
    
-   public GameObject[] players;
-   public CinemachineVirtualCamera[] vCameras;
-   public GameObject[] camTargetFollowers;
-   private int currentPlayerIndex;
-   private bool waitingForNexTurn;
+   [SerializeField] private CinemachineVirtualCamera[] vCameras;
+   public int currentPlayerIndex;
+   //private int wallOfDeathCounter = 0; // if adding battle royale wall of death
+   private bool waitingForNexTurn; // if adding battle royale wall of death
    
 
    private void Awake()
@@ -28,7 +28,7 @@ public class TurnManager : MonoBehaviour
          currentPlayerIndex = 1;
          playerOne.SetPlayerTurn(1);
          playerTwo.SetPlayerTurn(2);
-         playerThree.SetPlayerTurn(3);
+         //playerThree.SetPlayerTurn(3);
          Debug.Log("it is player" + currentPlayerIndex);
       }
    }
@@ -38,10 +38,15 @@ public class TurnManager : MonoBehaviour
       if (Input.GetKeyDown(KeyCode.Return))
       {
          ChangeTurn();
-         playerOne.GetComponent<PlayerAttributes>().ResetPlayerActions();
-         playerTwo.GetComponent<PlayerAttributes>().ResetPlayerActions();
-         playerThree.GetComponent<PlayerAttributes>().ResetPlayerActions();
+         //wallOfDeathCounter++; // if adding battle royale wall of death
+         ResetPlayerActions();
+         PickUpManager.GetInstance().SpawnNewPickUps();
       }
+
+      /*if (wallOfDeathCounter == 5) // if adding battle royale wall of death
+      {
+         wallOfDeath.SetActive(true);
+      }*/
    }
 
    public bool IsItPlayersTurn(int index)
@@ -71,25 +76,35 @@ public class TurnManager : MonoBehaviour
          currentPlayerIndex = 2;
          vCameras[0].Priority = 1;
          vCameras[1].Priority = 2;
-         vCameras[2].Priority = 1;
-         Debug.Log("switched to player 2");
+         //vCameras[2].Priority = 1;
+         Debug.Log("switched to player" + currentPlayerIndex);
       }
       
       else if (currentPlayerIndex == 2)
       {
-         currentPlayerIndex = 3;
-         vCameras[0].Priority = 1;
-         vCameras[1].Priority = 1;
-         vCameras[2].Priority = 2;
-         Debug.Log("switched to player 3");
-      }
-      else if (currentPlayerIndex == 3)
-      {
          currentPlayerIndex = 1;
          vCameras[0].Priority = 2;
          vCameras[1].Priority = 1;
-         vCameras[2].Priority = 1;
-         Debug.Log("switched to player 1");
+         //vCameras[2].Priority = 2;
+         Debug.Log("switched to player" + currentPlayerIndex);
       }
+      /*else if (currentPlayerIndex == 3) // if adding new players
+      {
+         if (playerThree.enabled)
+         {
+            currentPlayerIndex = 1;
+            vCameras[0].Priority = 2;
+            vCameras[1].Priority = 1;
+            vCameras[2].Priority = 1;
+         }
+         Debug.Log("switched to player" + currentPlayerIndex);
+      }*/
+   }
+
+   private void ResetPlayerActions()
+   {
+      playerOne.GetComponent<PlayerAttributes>().ResetPlayerActions();
+      playerTwo.GetComponent<PlayerAttributes>().ResetPlayerActions();
+      //playerThree.GetComponent<PlayerAttributes>().ResetPlayerActions();
    }
 }

@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 1981539997}
   - component: {fileID: 1981539996}
   m_Layer: 5
-  m_Name: Player1Text
+  m_Name: PlayerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 8251206362980237612}
   - component: {fileID: 8251206362980237613}
   m_Layer: 0
-  m_Name: PlayerCamTarget1
+  m_Name: PlayerCamTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -785,10 +785,6 @@ PrefabInstance:
     - target: {fileID: 7218208684636578344, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
       propertyPath: playerIndex
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7218208684636578345, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
-      propertyPath: m_Speed
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a59f838484fe91498443ccd7b454409, type: 3}

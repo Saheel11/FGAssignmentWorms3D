@@ -60,13 +60,13 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space)) // stops player if they press space
             {
-                agent.SetDestination(transform.position);
+                agent.SetDestination(transform.position); //can use agent.ResetPath() but it stops the player after one frame
             }
         }
 
         if (!IsPlayerTurn) // ensures that the player stops if they press a spot and end their turn
         {
-            agent.SetDestination(transform.position);
+            agent.SetDestination(transform.position); //can use agent.ResetPath() but it stops the player after one frame
         }
         
         
