@@ -9,8 +9,7 @@ public class UIController : MonoBehaviour
 {
     //[SerializeField] private TextMeshProUGUI textUI;
     [SerializeField] private Slider movementSlider;
-    [SerializeField] private Slider playerHealth1Slider;
-    [SerializeField] private Slider playerHealth2Slider;
+    [SerializeField] private Slider[] playerHealthSliders;
     [SerializeField] private Slider actionMeterSlider;
 
     [SerializeField] private Image gameOverImage;
@@ -32,8 +31,8 @@ public class UIController : MonoBehaviour
     {
         currentPlayer = TurnManager.GetInstance().currentPlayerIndex - 1;
         
-        playerHealth1Slider.value = players[0].GetComponent<PlayerAttributes>().playerHealth;
-        playerHealth2Slider.value = players[1].GetComponent<PlayerAttributes>().playerHealth;
+        playerHealthSliders[0].value = players[0].GetComponent<PlayerAttributes>().playerHealth;
+        playerHealthSliders[1].value = players[1].GetComponent<PlayerAttributes>().playerHealth;
         movementSlider.value = players[currentPlayer].GetComponent<PlayerAttributes>().amountOfMovementMeter;
         actionMeterSlider.value = players[currentPlayer].GetComponent<PlayerAttributes>().amountOfActions;
         EnableGameOverImage();

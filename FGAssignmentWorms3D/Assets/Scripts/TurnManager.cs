@@ -76,7 +76,6 @@ public class TurnManager : MonoBehaviour
          currentPlayerIndex = 2;
          vCameras[0].Priority = 1;
          vCameras[1].Priority = 2;
-         //vCameras[2].Priority = 1;
          Debug.Log("switched to player" + currentPlayerIndex);
       }
       
@@ -85,7 +84,6 @@ public class TurnManager : MonoBehaviour
          currentPlayerIndex = 1;
          vCameras[0].Priority = 2;
          vCameras[1].Priority = 1;
-         //vCameras[2].Priority = 2;
          Debug.Log("switched to player" + currentPlayerIndex);
       }
       /*else if (currentPlayerIndex == 3) // if adding new players
@@ -105,6 +103,5 @@ public class TurnManager : MonoBehaviour
    {
       playerOne.GetComponent<PlayerAttributes>().ResetPlayerActions();
       playerTwo.GetComponent<PlayerAttributes>().ResetPlayerActions();
-      //playerThree.GetComponent<PlayerAttributes>().ResetPlayerActions();
    }
 }
