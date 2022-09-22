@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxAmountOfTimeToMove = 5f;
     [SerializeField] private PlayerTurn playerTurn;
     [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private LayerMask layerMask;
 
     void Update()
     {
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
             {
                 RaycastHit result;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out result, 100f) && gameObject.GetComponent<PlayerAttributes>().amountOfMovementMeter < maxAmountOfTimeToMove) // checks if there is movement left in the meter
+                if (Physics.Raycast(ray, out result, 100f, layerMask) && gameObject.GetComponent<PlayerAttributes>().amountOfMovementMeter < maxAmountOfTimeToMove) // checks if there is movement left in the meter
                 {
                     agent.SetDestination(result.point);
                 }
