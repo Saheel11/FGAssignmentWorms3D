@@ -14,11 +14,12 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
     
-        if (collision.gameObject.CompareTag("Destroyable"))
+        if (collision.gameObject.CompareTag("Destroyable") || collision.gameObject.CompareTag("PickUp"))
         {
             Destroy(collision.gameObject);
             Debug.Log("destroyed" + collision.gameObject);
         }
+
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerAttributes>().playerHealth -= bulletDamage;

@@ -14,5 +14,10 @@ public class PickUp : MonoBehaviour
             Debug.Log("you have" + other.gameObject.GetComponent<PlayerAttributes>().amountOfActions + " actions left");
             Destroy(gameObject);
         }
+
+        if (other.gameObject.CompareTag("Water"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

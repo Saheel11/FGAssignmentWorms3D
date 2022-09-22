@@ -29,6 +29,8 @@ public class PickUpManager : MonoBehaviour
     public void SpawnNewPickUps()
     {
         GameObject newPickUp = Instantiate(pickUpPrefab);
-        newPickUp.transform.position = new Vector3(Random.Range(0f, 50f), Random.Range(20f, 50f), Random.Range(0f, 50f));
+        newPickUp.transform.position = new Vector3(Random.Range(5f, 45f), Random.Range(20f, 50f), Random.Range(5f, 45f)); // spawns at random point within the game world
+        newPickUp.transform.rotation =
+            new Quaternion(Random.Range(0.1f, 0.5f), Random.Range(0.1f, 0.5f), Random.Range(0.1f, 0.5f), Random.Range(0.1f, 0.5f)); //rotates the pickup randomly to make it roll
     }
 }
