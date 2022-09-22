@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 1120569307280410411}
   - component: {fileID: 3135039202982733102}
   - component: {fileID: 5448943995425076309}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: PickUp
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,14 +29,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6608084427293122056}
-  m_LocalRotation: {x: 0, y: 0, z: 0.3318236, w: 0.9433415}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 36.396545, y: 1.86, z: 15.214737}
   m_LocalScale: {x: 0.98495424, y: 0.8267197, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 38.759}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6608084427293122055
 MeshFilter:
   m_ObjectHideFlags: 0
