@@ -8034,7 +8034,7 @@ MonoBehaviour:
   player: {fileID: 7218208684636578339, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
   whatToHit:
     serializedVersion: 2
-    m_Bits: 695
+    m_Bits: 1681
   playerTurn: {fileID: 4180929007308506590, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
 --- !u!1 &8251206363030014317
 GameObject:
