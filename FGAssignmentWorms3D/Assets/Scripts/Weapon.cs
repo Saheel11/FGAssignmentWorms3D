@@ -45,25 +45,12 @@ public class Weapon : MonoBehaviour
             
             if (Input.GetMouseButtonDown(1) && player.GetComponent<PlayerAttributes>().amountOfActions > 0 ) 
             {
-                ShootWeapon();
+                ShootBullet();
             }
         }
- 
     }
 
-    public void ShootWeapon()
-    {
-        RaycastHit hit; 
-        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(mouseRay, out hit, range))
-        {
-            SpawnBullet();
-        }
-
-    }
-
-    void SpawnBullet()
+    void ShootBullet()
     {
         GameObject bulletGO = Instantiate(bullet, weaponFirePoint.transform.position, weaponFirePoint.transform.rotation);
         bulletGO.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
