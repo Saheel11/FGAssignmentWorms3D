@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.16129029, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.18881121, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -216,7 +216,7 @@ RectTransform:
   m_GameObject: {fileID: 776141552}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5363479, y: 2.5363479, z: 2.5363479}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 594603319}
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: d7e62a8f87cb27c4a8356922a7c77829, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -734,6 +734,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2402118131873940725, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3738659779311748892, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
       propertyPath: whatToHit.m_Bits
       value: 691
@@ -805,6 +809,10 @@ PrefabInstance:
     - target: {fileID: 7218208684636578345, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
       propertyPath: m_Acceleration
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234679446454605106, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8445610461501128122, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
       propertyPath: m_Mesh
