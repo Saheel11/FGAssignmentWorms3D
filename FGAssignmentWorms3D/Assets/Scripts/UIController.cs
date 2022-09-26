@@ -30,7 +30,7 @@ public class UIController : MonoBehaviour
 
     private void Update()
     {
-        currentPlayer = TurnManager.GetInstance().currentPlayerIndex - 1;
+        currentPlayer = TurnManager.GetInstance().currentPlayerIndex - 1; // to get the correct player index in the array
         
         playerHealthSliders[0].value = players[0].GetComponent<PlayerAttributes>().playerHealth;
         playerHealthSliders[1].value = players[1].GetComponent<PlayerAttributes>().playerHealth;

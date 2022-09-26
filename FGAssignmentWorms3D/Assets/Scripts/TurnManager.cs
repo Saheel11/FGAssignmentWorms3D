@@ -11,13 +11,12 @@ public class TurnManager : MonoBehaviour
    private static TurnManager instance;
    [SerializeField] private PlayerTurn playerOne;
    [SerializeField] private PlayerTurn playerTwo;
-   //[SerializeField] private PlayerTurn playerThree;
-   [SerializeField] private GameObject wallOfDeath;
+   //[SerializeField] private GameObject wallOfDeath; // if adding battle royale wall of death
    
    [SerializeField] private CinemachineVirtualCamera[] vCameras;
    public int currentPlayerIndex;
    //private int wallOfDeathCounter = 0; // if adding battle royale wall of death
-   private bool waitingForNexTurn; // if adding battle royale wall of death
+   private bool waitingForNexTurn; 
    
 
    private void Awake()
@@ -28,7 +27,6 @@ public class TurnManager : MonoBehaviour
          currentPlayerIndex = 1;
          playerOne.SetPlayerTurn(1);
          playerTwo.SetPlayerTurn(2);
-         //playerThree.SetPlayerTurn(3);
          Debug.Log("it is player" + currentPlayerIndex);
       }
    }
@@ -38,7 +36,7 @@ public class TurnManager : MonoBehaviour
       if (Input.GetKeyDown(KeyCode.Return))
       {
          ChangeTurn();
-         gameObject.GetComponent<UIController>().SetDefaultActionMeterSlider();
+         gameObject.GetComponent<UIController>().SetDefaultActionMeterSlider(); // resetting action meter slider to default 3
          //wallOfDeathCounter++; // if adding battle royale wall of death
          ResetPlayerActions();
          PickUpManager.GetInstance().SpawnNewPickUps();
@@ -87,17 +85,6 @@ public class TurnManager : MonoBehaviour
          vCameras[1].Priority = 1;
          Debug.Log("switched to player" + currentPlayerIndex);
       }
-      /*else if (currentPlayerIndex == 3) // if adding new players
-      {
-         if (playerThree.enabled)
-         {
-            currentPlayerIndex = 1;
-            vCameras[0].Priority = 2;
-            vCameras[1].Priority = 1;
-            vCameras[2].Priority = 1;
-         }
-         Debug.Log("switched to player" + currentPlayerIndex);
-      }*/
    }
 
    private void ResetPlayerActions()

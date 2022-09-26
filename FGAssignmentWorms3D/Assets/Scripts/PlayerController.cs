@@ -10,7 +10,6 @@ using Color = UnityEngine.Color;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private int playerIndex;
     [SerializeField] private float maxAmountOfTimeToMove = 5f;
     [SerializeField] private PlayerTurn playerTurn;
     [SerializeField] private LineRenderer lineRenderer;
@@ -38,7 +37,7 @@ public class PlayerController : MonoBehaviour
             
             }
 
-            //moves players to where mouseclick is
+            //moves players to mouseclick
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit result;
@@ -61,7 +60,8 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space)) // stops player if they press space
             {
-                agent.SetDestination(transform.position); //can use agent.ResetPath() but it stops the player after one frame
+                agent.ResetPath();
+                //agent.SetDestination(transform.position); //can use agent.ResetPath() but it stops the player after one frame
             }
         }
 

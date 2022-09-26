@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletExplosionPrefab;
+    [SerializeField] private GameObject bulletExplosionPrefab; // particle effect explosion prefab
     [SerializeField] private int bulletDamage = 10;
 
 
@@ -14,13 +14,13 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
     
-        if (collision.gameObject.CompareTag("Destroyable") || collision.gameObject.CompareTag("PickUp"))
+        if (collision.gameObject.CompareTag("Destroyable") || collision.gameObject.CompareTag("PickUp")) // destroy destroyable objects or pickups
         {
             Destroy(collision.gameObject);
             Debug.Log("destroyed" + collision.gameObject);
         }
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player")) //damages player health
         {
             collision.gameObject.GetComponent<PlayerAttributes>().playerHealth -= bulletDamage;
             Debug.Log("player has " + collision.gameObject.GetComponent<PlayerAttributes>().playerHealth + " health left");
@@ -30,9 +30,9 @@ public class Bullet : MonoBehaviour
         bulletTransform = this.gameObject.transform;
         GameObject bulletExplosionClone = Instantiate(bulletExplosionPrefab, bulletTransform.transform.position, 
             bulletTransform.transform.rotation);
-        Destroy(bulletExplosionClone, 1f);
-        Destroy(this.gameObject);
-
+        Destroy(bulletExplosionClone, 1f); // destroy the explosion prefab 1 second after collision
+        Destroy(this.gameObject); // destroys the bullet on collision
+        
     }
 
 }

@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject player;
-    [SerializeField] private LayerMask whatToHit;
+    [SerializeField] private LayerMask whatToHit; // layers for raycasting to ignore
     
     //Testing playerturn
     [SerializeField] private PlayerTurn playerTurn;
@@ -29,6 +29,8 @@ public class Weapon : MonoBehaviour
             Debug.Log("did not find firepoint");            
         }
     }
+    
+    // Weapon is pointed towards mouse
     void Update()
     {
         bool IsPlayerTurn = playerTurn.IsPlayerTurn();

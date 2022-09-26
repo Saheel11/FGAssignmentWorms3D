@@ -28,7 +28,7 @@ public class PlayerAttributes : MonoBehaviour
         Debug.Log("Player has " +playerHealth +" hp");
     }
 
-    private void Update()
+    /*private void Update() // Use for GOD MODE
     {
         bool IsPlayerTurn = playerTurn.IsPlayerTurn();
         
@@ -38,19 +38,9 @@ public class PlayerAttributes : MonoBehaviour
             {
                 ResetPlayerActions();
             }
-
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                playerHealth -= 10;
-                Debug.Log("Player has" + playerHealth + " hp left");
-            }
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                Debug.Log("Player has" + amountOfActions + " actions and" + amountOfMovementMeter + " movement left");
-            }
         }
 
-    }
+    }*/
 
     public void DecreaseAmountOfActionsLeft()
     {

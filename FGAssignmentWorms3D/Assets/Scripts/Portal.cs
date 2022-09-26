@@ -16,15 +16,13 @@ public class Portal : MonoBehaviour
 
     private void Update()
     {
-        currentAgent = TurnManager.GetInstance().currentPlayerIndex - 1;
-        //Debug.Log("it is agentPosition "+ agentPosition);
+        currentAgent = TurnManager.GetInstance().currentPlayerIndex - 1; // to get the correct player index in the array
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //other.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, destination.transform.position.z);
             agents[currentAgent].Warp(new Vector3(destination.transform.position.x, destination.transform.position.y, 
                 destination.transform.position.z));
             
