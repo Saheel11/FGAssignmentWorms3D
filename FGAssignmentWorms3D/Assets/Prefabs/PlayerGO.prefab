@@ -740,7 +740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738659779311748892, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
       propertyPath: whatToHit.m_Bits
-      value: 691
+      value: 563
       objectReference: {fileID: 0}
     - target: {fileID: 6004326754831716874, guid: 0a59f838484fe91498443ccd7b454409, type: 3}
       propertyPath: playerHealth
